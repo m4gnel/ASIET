@@ -1,5 +1,5 @@
 import java.util.*;
-class Magnel
+class Student
 {
     public static void main(String args[])
     {
