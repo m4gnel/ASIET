@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-03-06T11:49:15.149053",
+  "database": "interview_coach.db",
+  "checks": [
+    {
+      "name": "interviews_without_users",
+      "query": "SELECT COUNT(*) FROM interviews WHERE user_id NOT IN (SELECT id FROM users)",
+      "found": 0,
+      "description": "interviews with missing users"
+    },
+    {
+      "name": "answers_without_interviews",
+      "query": "SELECT COUNT(*) FROM answers WHERE interview_id NOT IN (SELECT id FROM interviews)",
+      "found": 0,
+      "description": "answers with missing interviews"
+    },
+    {
+      "name": "answers_without_questions",
+      "query": "SELECT COUNT(*) FROM answers WHERE question_id NOT IN (SELECT id FROM questions)",
+      "found": 0,
+      "description": "answers with missing questions"
+    },
+    {
+      "name": "feedback_without_users",
+      "query": "SELECT COUNT(*) FROM feedback WHERE user_id NOT IN (SELECT id FROM users)",
+      "found": 0,
+      "description": "feedback with missing users"
+    },
+    {
+      "name": "feedback_without_answers",
+      "query": "SELECT COUNT(*) FROM feedback WHERE answer_id NOT IN (SELECT id FROM answers)",
+      "found": 0,
+      "description": "feedback with missing answers"
+    }
+  ],
+  "fixes": [
+    {
+      "action": "recalculate_user_stats",
+      "users_fixed": 2,
+      "total_users": 2
+    }
+  ],
+  "warnings": [],
+  "errors": []
+}

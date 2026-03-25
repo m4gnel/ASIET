@@ -1,0 +1,6 @@
+-- database: c:\projects\ai_coach_demo_p2\backend\interview_coach.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+-- Check all users
+SELECT id, email, first_name, last_name, is_active, total_interviews, average_score FROM users;
